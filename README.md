@@ -242,11 +242,9 @@ Prioritize the Dashboard, Risk Map, Early Warning Center and Location Details pa
 
 Build the complete working frontend now. Do not ask for clarification. Do not build backend features.           build within cridet
 
-This project was built with [Lovable](https://lovable.dev).
 
-## Build with Lovable
 
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/b5701bb6-ea31-41de-9b12-4eb6fa5953c9).
+
 
 - **Ship faster**: describe what you want to build and Lovable handles the code.
 - **Stay in sync**: every change made in Lovable is committed straight to this repository.
