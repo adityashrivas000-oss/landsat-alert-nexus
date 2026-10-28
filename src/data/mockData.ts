@@ -119,7 +119,7 @@ function buildLocation(seed: Seed): Location {
   const total = weights.reduce((a, b) => a + b, 0);
   const factors = FACTOR_LIBRARY.map((f, i) => ({
     ...f,
-    weight: Math.round((weights[i] / total) * 100),
+    weight: Math.round((weights[i]! / total) * 100),
   })).sort((a, b) => b.weight - a.weight);
 
   const trend = Array.from({ length: 14 }, (_, i) => {
@@ -130,7 +130,7 @@ function buildLocation(seed: Seed): Location {
       score: Math.max(5, Math.min(99, Math.round(seed.score + drift + noise))),
     };
   });
-  trend[trend.length - 1].score = seed.score;
+  trend[trend.length - 1]!.score = seed.score;
 
   const actionsByLevel: Record<RiskLevel, string[]> = {
     LOW: [
@@ -180,7 +180,7 @@ function buildLocation(seed: Seed): Location {
       level,
       updatedAt: isoHoursAgo(1 + Math.round(rnd() * 4)),
       factors,
-      explanation: `${seed.name} is currently modelled at ${seed.score}/100 (${level}). The prototype model attributes this mainly to ${factors[0].label.toLowerCase()} (${factors[0].weight}% contribution) combined with a ${seed.slope}° average terrain gradient and a soil saturation index of ${soilMoisture}%. Rainfall over the last 72 hours (${rainfall3d} mm) exceeds the demo threshold band used for this district, while the surrounding terrain at ${seed.elevation} m elevation has a recorded history of shallow translational failures. This explanation is generated from prototype data for demonstration purposes only.`,
+      explanation: `${seed.name} is currently modelled at ${seed.score}/100 (${level}). The prototype model attributes this mainly to ${factors[0]!.label.toLowerCase()} (${factors[0]!.weight}% contribution) combined with a ${seed.slope}° average terrain gradient and a soil saturation index of ${soilMoisture}%. Rainfall over the last 72 hours (${rainfall3d} mm) exceeds the demo threshold band used for this district, while the surrounding terrain at ${seed.elevation} m elevation has a recorded history of shallow translational failures. This explanation is generated from prototype data for demonstration purposes only.`,
       recommendedActions: actionsByLevel[level],
       trend,
     },
@@ -331,9 +331,9 @@ export function buildRegionalOverview(): RegionalOverview {
     locations.reduce((s, l) => s + l.risk.score, 0) / locations.length,
   );
   const trend = Array.from({ length: 14 }, (_, i) => ({
-    date: locations[0].risk.trend[i].date,
+    date: locations[0]!.risk.trend[i]!.date,
     score: Math.round(
-      locations.reduce((s, l) => s + l.risk.trend[i].score, 0) / locations.length,
+      locations.reduce((s, l) => s + l.risk.trend[i]!.score, 0) / locations.length,
     ),
   }));
   return {
