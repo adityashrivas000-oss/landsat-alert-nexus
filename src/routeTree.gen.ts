@@ -10,11 +10,24 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthorityRouteImport } from './routes/authority'
 import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as HistoryRouteImport } from './routes/history'
+import { Route as PredictionsRouteImport } from './routes/predictions'
+import { Route as ReportsRouteImport } from './routes/reports'
+import { Route as RiskMapRouteImport } from './routes/risk-map'
+import { Route as SafetyRouteImport } from './routes/safety'
+import { Route as WarningsRouteImport } from './routes/warnings'
+import { Route as LocationLocationIdRouteImport } from './routes/location.$locationId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthorityRoute = AuthorityRouteImport.update({
+  id: '/authority',
+  path: '/authority',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
@@ -22,31 +35,129 @@ const DashboardRoute = DashboardRouteImport.update({
   path: '/dashboard',
   getParentRoute: () => rootRouteImport,
 } as any)
+const HistoryRoute = HistoryRouteImport.update({
+  id: '/history',
+  path: '/history',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PredictionsRoute = PredictionsRouteImport.update({
+  id: '/predictions',
+  path: '/predictions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReportsRoute = ReportsRouteImport.update({
+  id: '/reports',
+  path: '/reports',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RiskMapRoute = RiskMapRouteImport.update({
+  id: '/risk-map',
+  path: '/risk-map',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SafetyRoute = SafetyRouteImport.update({
+  id: '/safety',
+  path: '/safety',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WarningsRoute = WarningsRouteImport.update({
+  id: '/warnings',
+  path: '/warnings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LocationLocationIdRoute = LocationLocationIdRouteImport.update({
+  id: '/location/$locationId',
+  path: '/location/$locationId',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/authority': typeof AuthorityRoute
   '/dashboard': typeof DashboardRoute
+  '/history': typeof HistoryRoute
+  '/predictions': typeof PredictionsRoute
+  '/reports': typeof ReportsRoute
+  '/risk-map': typeof RiskMapRoute
+  '/safety': typeof SafetyRoute
+  '/warnings': typeof WarningsRoute
+  '/location/$locationId': typeof LocationLocationIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/authority': typeof AuthorityRoute
   '/dashboard': typeof DashboardRoute
+  '/history': typeof HistoryRoute
+  '/predictions': typeof PredictionsRoute
+  '/reports': typeof ReportsRoute
+  '/risk-map': typeof RiskMapRoute
+  '/safety': typeof SafetyRoute
+  '/warnings': typeof WarningsRoute
+  '/location/$locationId': typeof LocationLocationIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/authority': typeof AuthorityRoute
   '/dashboard': typeof DashboardRoute
+  '/history': typeof HistoryRoute
+  '/predictions': typeof PredictionsRoute
+  '/reports': typeof ReportsRoute
+  '/risk-map': typeof RiskMapRoute
+  '/safety': typeof SafetyRoute
+  '/warnings': typeof WarningsRoute
+  '/location/$locationId': typeof LocationLocationIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard'
+  fullPaths:
+    | '/'
+    | '/authority'
+    | '/dashboard'
+    | '/history'
+    | '/predictions'
+    | '/reports'
+    | '/risk-map'
+    | '/safety'
+    | '/warnings'
+    | '/location/$locationId'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard'
-  id: '__root__' | '/' | '/dashboard'
+  to:
+    | '/'
+    | '/authority'
+    | '/dashboard'
+    | '/history'
+    | '/predictions'
+    | '/reports'
+    | '/risk-map'
+    | '/safety'
+    | '/warnings'
+    | '/location/$locationId'
+  id:
+    | '__root__'
+    | '/'
+    | '/authority'
+    | '/dashboard'
+    | '/history'
+    | '/predictions'
+    | '/reports'
+    | '/risk-map'
+    | '/safety'
+    | '/warnings'
+    | '/location/$locationId'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthorityRoute: typeof AuthorityRoute
   DashboardRoute: typeof DashboardRoute
+  HistoryRoute: typeof HistoryRoute
+  PredictionsRoute: typeof PredictionsRoute
+  ReportsRoute: typeof ReportsRoute
+  RiskMapRoute: typeof RiskMapRoute
+  SafetyRoute: typeof SafetyRoute
+  WarningsRoute: typeof WarningsRoute
+  LocationLocationIdRoute: typeof LocationLocationIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -58,6 +169,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/authority': {
+      id: '/authority'
+      path: '/authority'
+      fullPath: '/authority'
+      preLoaderRoute: typeof AuthorityRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/dashboard': {
       id: '/dashboard'
       path: '/dashboard'
@@ -65,12 +183,69 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/history': {
+      id: '/history'
+      path: '/history'
+      fullPath: '/history'
+      preLoaderRoute: typeof HistoryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/predictions': {
+      id: '/predictions'
+      path: '/predictions'
+      fullPath: '/predictions'
+      preLoaderRoute: typeof PredictionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reports': {
+      id: '/reports'
+      path: '/reports'
+      fullPath: '/reports'
+      preLoaderRoute: typeof ReportsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/risk-map': {
+      id: '/risk-map'
+      path: '/risk-map'
+      fullPath: '/risk-map'
+      preLoaderRoute: typeof RiskMapRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/safety': {
+      id: '/safety'
+      path: '/safety'
+      fullPath: '/safety'
+      preLoaderRoute: typeof SafetyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/warnings': {
+      id: '/warnings'
+      path: '/warnings'
+      fullPath: '/warnings'
+      preLoaderRoute: typeof WarningsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/location/$locationId': {
+      id: '/location/$locationId'
+      path: '/location/$locationId'
+      fullPath: '/location/$locationId'
+      preLoaderRoute: typeof LocationLocationIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthorityRoute: AuthorityRoute,
   DashboardRoute: DashboardRoute,
+  HistoryRoute: HistoryRoute,
+  PredictionsRoute: PredictionsRoute,
+  ReportsRoute: ReportsRoute,
+  RiskMapRoute: RiskMapRoute,
+  SafetyRoute: SafetyRoute,
+  WarningsRoute: WarningsRoute,
+  LocationLocationIdRoute: LocationLocationIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
